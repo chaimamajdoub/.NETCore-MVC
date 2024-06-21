@@ -1,0 +1,41 @@
+﻿@model IEnumerable<TP11Core.Models.SousCategorie>
+
+@{
+    ViewData["Title"] = "Index";
+}
+
+<h1>Sous-Categories</h1>
+
+<p>
+    <a asp-action="Create">Create New</a>
+</p>
+<table class="table">
+    <thead>
+        <tr>
+            <th>
+                @Html.DisplayNameFor(model => model.Name)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.CategorieId)
+            </th>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (var souscategorie in Model)
+        {
+            <tr>
+                <td>@souscategorie.Name</td>
+                <td>@souscategorie.CategorieId</td>
+                <td>@souscategorie.Id</td>
+
+
+
+                <td>
+                    <a class="btn-primary" asp-controller="SousCategories" asp-action="Edit" asp-route-id="@souscategorie.Id">Edit</a> |
+                    <a asp-controller="SousCategories" asp-action="Details" asp-route-id="@souscategorie.Id">Details</a> |
+                    <a asp-controller="SousCategories" asp-action="Delete" asp-route-id="@souscategorie.Id">Delete</a>
+                </td>
+            </tr>
+        }
+    </tbody>
+</table>

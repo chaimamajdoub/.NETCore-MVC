@@ -1,0 +1,42 @@
+﻿@model IEnumerable<TP11Core.Models.Produit>
+
+@{
+    ViewData["Title"] = "Index";
+}
+
+<h1>Products</h1>
+
+<p>
+    <a asp-action="Create">Create New</a>
+</p>
+<table class="table">
+    <thead>
+        <tr>
+            <th>
+                @Html.DisplayNameFor(model => model.ProduitName)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.ProduitDescription)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.ProduitPrice)
+            </th>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (var produit in Model)
+        {
+            <tr>
+                <td>@produit.ProduitId</td>
+                <td>@produit.ProduitName</td>
+                <td>@produit.ProduitDescription</td>
+                <td>@produit.ProduitPrice</td>
+                <td>
+                    <a class="btn-primary" asp-controller="Produits" asp-action="Edit" asp-route-id="@produit.ProduitId">Edit</a> |
+                    <a asp-controller="Produits" asp-action="Details" asp-route-id="@produit.ProduitId">Details</a> |
+                    <a asp-controller="Produits" asp-action="Delete" asp-route-id="@produit.ProduitId">Delete</a>
+                </td>
+            </tr>
+        }
+    </tbody>
+</table>
